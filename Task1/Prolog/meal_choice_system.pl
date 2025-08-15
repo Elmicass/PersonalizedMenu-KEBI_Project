@@ -16,6 +16,7 @@ meal(vegetarian, water).
 meal(carnivorous, coca-cola).
 meal(vegetarian, coca-cola).
 meal(carnivorous, affettati_misti).
+meal(carnivorous, rigatoni_alla_carbonara).
 meal(carnivorous, tagliatelle_alla_marinara).
 meal(carnivorous, lasagne).
 meal(carnivorous, grigliata_di_maiale_mista).
@@ -330,13 +331,11 @@ meal_info(Meal, Ingredients, TotalKcal) :-
 
 % QUERY example:
 
-% guest_preferences(carnivorous, 2, lactose, GuestPreferences).
+% guest_preferences(carnivorous, 2, lactose, none, GuestPreferences).
 
 % guest_preferences(none, 0, none, none, GuestPreferences).
 
 % guest_preferences(none, 0, lactose, appetizer, GuestPreferences).
-
-% guest_preferences(carnivorous, 0, none).
 
 % ingredient_kcal(carrot, Kcal).
 

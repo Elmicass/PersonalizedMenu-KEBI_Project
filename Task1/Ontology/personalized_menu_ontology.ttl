@@ -7,7 +7,7 @@
 @prefix swrl: <http://www.w3.org/2003/11/swrl#> .
 @prefix swrla: <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#> .
 @prefix kebi2025: <http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#> .
-@base <http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025> .
+@base <http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#> .
 
 <http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025> rdf:type owl:Ontology .
 
@@ -27,6 +27,12 @@ swrla:isRuleEnabled rdf:type owl:AnnotationProperty .
 kebi2025:dairy_containsLactoseIntolerance rdf:type owl:ObjectProperty ;
                                           rdfs:domain kebi2025:Dairy ;
                                           rdfs:range kebi2025:Lactose .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#drink_containsAllergy
+kebi2025:drink_containsAllergy rdf:type owl:ObjectProperty ;
+                               rdfs:domain kebi2025:Drink ;
+                               rdfs:range kebi2025:Allergy .
 
 
 ###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#drink_hasIngredient
@@ -182,16 +188,6 @@ kebi2025:AnimalOriginProduct rdf:type owl:Class ;
                              rdfs:subClassOf kebi2025:Ingredient .
 
 
-###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#Appetizer
-kebi2025:Appetizer rdf:type owl:Class ;
-                   rdfs:subClassOf kebi2025:Course .
-
-
-###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#Carnivorous
-kebi2025:Carnivorous rdf:type owl:Class ;
-                     rdfs:subClassOf kebi2025:Category .
-
-
 ###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#Category
 kebi2025:Category rdf:type owl:Class .
 
@@ -205,18 +201,8 @@ kebi2025:Dairy rdf:type owl:Class ;
                rdfs:subClassOf kebi2025:Ingredient .
 
 
-###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#Dessert
-kebi2025:Dessert rdf:type owl:Class ;
-                 rdfs:subClassOf kebi2025:Course .
-
-
 ###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#Drink
 kebi2025:Drink rdf:type owl:Class .
-
-
-###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#FirstDish
-kebi2025:FirstDish rdf:type owl:Class ;
-                   rdfs:subClassOf kebi2025:Course .
 
 
 ###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#Food
@@ -257,11 +243,6 @@ kebi2025:Liquid rdf:type owl:Class ;
                 rdfs:subClassOf kebi2025:Ingredient .
 
 
-###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#MainDish
-kebi2025:MainDish rdf:type owl:Class ;
-                  rdfs:subClassOf kebi2025:Course .
-
-
 ###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#Meal
 kebi2025:Meal rdf:type owl:Class ;
               rdfs:subClassOf kebi2025:Food .
@@ -290,16 +271,6 @@ kebi2025:Seasoning rdf:type owl:Class ;
                    rdfs:subClassOf kebi2025:Ingredient .
 
 
-###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#SecondCourse
-kebi2025:SecondCourse rdf:type owl:Class ;
-                      rdfs:subClassOf kebi2025:Course .
-
-
-###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#Sidedish
-kebi2025:Sidedish rdf:type owl:Class ;
-                  rdfs:subClassOf kebi2025:Course .
-
-
 ###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#Tuber
 kebi2025:Tuber rdf:type owl:Class ;
                rdfs:subClassOf kebi2025:Ingredient .
@@ -308,11 +279,6 @@ kebi2025:Tuber rdf:type owl:Class ;
 ###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#Vegetable
 kebi2025:Vegetable rdf:type owl:Class ;
                    rdfs:subClassOf kebi2025:Ingredient .
-
-
-###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#Vegetarian
-kebi2025:Vegetarian rdf:type owl:Class ;
-                    rdfs:subClassOf kebi2025:Category .
 
 
 #################################################################
@@ -333,49 +299,49 @@ kebi2025:allergy_lactose rdf:type owl:NamedIndividual ,
 
 ###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#category_carnivorous
 kebi2025:category_carnivorous rdf:type owl:NamedIndividual ,
-                                       kebi2025:Carnivorous ;
+                                       kebi2025:Category ;
                               kebi2025:thing_hasName "Carnivorous" .
 
 
 ###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#category_vegetarian
 kebi2025:category_vegetarian rdf:type owl:NamedIndividual ,
-                                      kebi2025:Vegetarian ;
+                                      kebi2025:Category ;
                              kebi2025:thing_hasName "Vegetarian" .
 
 
 ###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#course_appetizer
 kebi2025:course_appetizer rdf:type owl:NamedIndividual ,
-                                   kebi2025:Appetizer ;
+                                   kebi2025:Course ;
                           kebi2025:thing_hasName "Appetizer" .
 
 
 ###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#course_dessert
 kebi2025:course_dessert rdf:type owl:NamedIndividual ,
-                                 kebi2025:Dessert ;
+                                 kebi2025:Course ;
                         kebi2025:thing_hasName "Dessert" .
 
 
 ###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#course_first-dish
 kebi2025:course_first-dish rdf:type owl:NamedIndividual ,
-                                    kebi2025:FirstDish ;
+                                    kebi2025:Course ;
                            kebi2025:thing_hasName "First Dish" .
 
 
 ###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#course_main-dish
 kebi2025:course_main-dish rdf:type owl:NamedIndividual ,
-                                   kebi2025:MainDish ;
+                                   kebi2025:Course ;
                           kebi2025:thing_hasName "Main Dish" .
 
 
 ###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#course_second-course
 kebi2025:course_second-course rdf:type owl:NamedIndividual ,
-                                       kebi2025:SecondCourse ;
+                                       kebi2025:Course ;
                               kebi2025:thing_hasName "Second Course" .
 
 
 ###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#course_sidedish
 kebi2025:course_sidedish rdf:type owl:NamedIndividual ,
-                                  kebi2025:Sidedish ;
+                                  kebi2025:Course ;
                          kebi2025:thing_hasName "Sidedish" .
 
 

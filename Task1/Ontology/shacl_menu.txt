@@ -3,23 +3,23 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix kebi2024: <http://www.semanticweb.org/francesco.chiocchi-nicolo.rossini/kebi2024#> .
+@prefix kebi2025: <http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#> .
 
 
 ### Shape for Restaurant
 
-kebi2024:RestaurantShape a sh:NodeShape ;
-    sh:targetClass kebi2024:Restaurant ;
+kebi2025:RestaurantShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Restaurant ;
     sh:property [
-        sh:path kebi2024:restaurant_hasMenu ;
-        sh:node kebi2024:MenuShape ;
+        sh:path kebi2025:restaurant_hasMenu ;
+        sh:node kebi2025:MenuShape ;
         sh:minCount 1 ;
         sh:maxCount 5 ;
         sh:message "It is impossible that a Restaurant does not have a menu!!" ;
     ] ;
     sh:property [
-        sh:path kebi2024:restaurant_hasGuest ;
-        sh:node kebi2024:GuestShape ;
+        sh:path kebi2025:restaurant_hasGuest ;
+        sh:node kebi2025:GuestShape ;
         sh:minCount 0;
     ] ;
 .
@@ -27,18 +27,18 @@ kebi2024:RestaurantShape a sh:NodeShape ;
 
 ### Shape for Menu
 
-kebi2024:MenuShape a sh:NodeShape ;
-    sh:targetClass kebi2024:Menu ; 
+kebi2025:MenuShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Menu ; 
     sh:property [
-        sh:path kebi2024:menu_containsMeal ;
-        sh:node kebi2024:MealShape ;
+        sh:path kebi2025:menu_containsMeal ;
+        sh:node kebi2025:MealShape ;
         sh:minCount 1 ;
         sh:maxCount 300;
         sh:message "Too many meals on the menu" ;
     ] ;
     sh:property [
-        sh:path kebi2024:menu_containsDrink ;
-        sh:node kebi2024:DrinkShape ;
+        sh:path kebi2025:menu_containsDrink ;
+        sh:node kebi2025:DrinkShape ;
         sh:minCount 1 ;
         sh:maxCount 100 ;
         sh:message "Too many drinks on the menu" ;
@@ -48,27 +48,27 @@ kebi2024:MenuShape a sh:NodeShape ;
 
 ### Shape for Guest
 
-kebi2024:GuestShape a sh:NodeShape ;
-    sh:targetClass kebi2024:Guest ;
+kebi2025:GuestShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Guest ;
     sh:property [
-        sh:path kebi2024:guest_hasAllergy ;
-        sh:node kebi2024:AllergyShape ;
+        sh:path kebi2025:guest_hasAllergy ;
+        sh:node kebi2025:AllergyShape ;
         sh:minCount 0 ;
         sh:maxCount 10;
     ] ;
     sh:property [
-        sh:path kebi2024:guest_hasCategory ;
-        sh:node kebi2024:CategoryShape ;
+        sh:path kebi2025:guest_hasCategory ;
+        sh:node kebi2025:CategoryShape ;
         sh:minCount 0;
         sh:maxCount 1;
     ] ;
     
     sh:property [
-        sh:path kebi2024:guest_isAtRiskForFood ;
-        sh:node kebi2024:MealShape ;
+        sh:path kebi2025:guest_isAtRiskForFood ;
+        sh:node kebi2025:MealShape ;
     ] ;
     sh:property [
-        sh:path kebi2024:guest_hasLevelOfCalorieConscious ;
+        sh:path kebi2025:guest_hasLevelOfCalorieConscious ;
         sh:datatype xsd:integer ;
         sh:minCount 1 ;
         sh:maxCount 4 ;
@@ -78,10 +78,10 @@ kebi2024:GuestShape a sh:NodeShape ;
 
 ### Shape for Food
 
-kebi2024:FoodShape a sh:NodeShape ;
-    sh:targetClass kebi2024:Food ; 
+kebi2025:FoodShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Food ; 
     sh:property [
-        sh:path kebi2024:food_hasKcal ;
+        sh:path kebi2025:food_hasKcal ;
         sh:datatype xsd:integer ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
@@ -93,35 +93,35 @@ kebi2024:FoodShape a sh:NodeShape ;
 
 ### Shape for Meal
 
-kebi2024:MealShape a sh:NodeShape ;
-    sh:targetClass kebi2024:Meal ;
+kebi2025:MealShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Meal ;
     sh:property [
-        sh:path kebi2024:meal_containsLactoseIntolerance ;
-        sh:node kebi2024:LactoseShape ;
+        sh:path kebi2025:meal_containsLactoseIntolerance ;
+        sh:node kebi2025:LactoseShape ;
         sh:minCount 0 ;
         sh:maxCount 1 ;
     ] ;
     sh:property [
-        sh:path kebi2024:meal_containsGlutenIntolerance ;
-        sh:node kebi2024:GlutenShape ;
+        sh:path kebi2025:meal_containsGlutenIntolerance ;
+        sh:node kebi2025:GlutenShape ;
         sh:minCount 0 ;
         sh:maxCount 1 ;
     ] ;
     sh:property [
-        sh:path kebi2024:meal_hasCategory ;
-        sh:node kebi2024:CategoryShape ;
+        sh:path kebi2025:meal_hasCategory ;
+        sh:node kebi2025:CategoryShape ;
         sh:minCount 0 ;
         sh:maxCount 5 ;
     ] ;
     sh:property [
-        sh:path kebi2024:meal_hasCourse ;
-        sh:node kebi2024:CourseShape ;
+        sh:path kebi2025:meal_hasCourse ;
+        sh:node kebi2025:CourseShape ;
         sh:minCount 0 ;
         sh:maxCount 2 ;
     ] ;
     sh:property [
-        sh:path kebi2024:meal_hasIngredient ;
-        sh:node kebi2024:IngredientShape ;
+        sh:path kebi2025:meal_hasIngredient ;
+        sh:node kebi2025:IngredientShape ;
         sh:minCount 2 ;
         sh:maxCount 150 ;
     ] ;
@@ -130,23 +130,23 @@ kebi2024:MealShape a sh:NodeShape ;
 
 ### Shape for Ingredient
 
-kebi2024:IngredientShape a sh:NodeShape ;
-    sh:targetClass kebi2024:Ingredient ;
+kebi2025:IngredientShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Ingredient ;
 .
 
 
 ### Shape for Drink
 
-kebi2024:DrinkShape a sh:NodeShape ;
-    sh:targetClass kebi2024:Drink ;
+kebi2025:DrinkShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Drink ;
     sh:property [
-        sh:path kebi2024:drink_hasIngredient ;
-        sh:node kebi2024:IngredientShape ;
+        sh:path kebi2025:drink_hasIngredient ;
+        sh:node kebi2025:IngredientShape ;
         sh:minCount 1;
         sh:maxCount 20 ;
     ] ;
     sh:property [
-        sh:path kebi2024:drink_hasKcal ;
+        sh:path kebi2025:drink_hasKcal ;
         sh:datatype xsd:integer ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
@@ -156,46 +156,46 @@ kebi2024:DrinkShape a sh:NodeShape ;
 
 ### Shape for Allergy
 
-kebi2024:AllergyShape a sh:NodeShape ;
-    sh:targetClass kebi2024:Allergy ; 
+kebi2025:AllergyShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Allergy ; 
 .
 
 
 ### Shape for Lactose
 
-kebi2024:LactoseShape a sh:NodeShape ;
-    sh:targetClass kebi2024:Lactose ;
+kebi2025:LactoseShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Lactose ;
 .
 
 
 ### Shape for Gluten
 
-kebi2024:GlutenShape a sh:NodeShape ;
-    sh:targetClass kebi2024:Gluten ;
+kebi2025:GlutenShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Gluten ;
 .
 
 
 ### Shape for Category
 
-kebi2024:CategoryShape a sh:NodeShape ;
-    sh:targetClass kebi2024:Category ; 
+kebi2025:CategoryShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Category ; 
 .
 
 
 ### Shape for AnimalOriginProduct
 
-kebi2024:AnimalOriginProductShape a sh:NodeShape ;
-    sh:targetClass kebi2024:AnimalOriginProduct ;
+kebi2025:AnimalOriginProductShape a sh:NodeShape ;
+    sh:targetClass kebi2025:AnimalOriginProduct ;
 .
 
 
 ### Shape for Dairy
 
-kebi2024:DairyShape a sh:NodeShape ;
-    sh:targetClass kebi2024:Dairy ;
+kebi2025:DairyShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Dairy ;
     sh:property [
-        sh:path kebi2024:dairy_containsLactoseIntolerance ;
-        sh:node kebi2024:LactoseShape ;
+        sh:path kebi2025:dairy_containsLactoseIntolerance ;
+        sh:node kebi2025:LactoseShape ;
         sh:minCount 1 ;
         sh:maxCount 1 ;
     ] ;
@@ -204,18 +204,18 @@ kebi2024:DairyShape a sh:NodeShape ;
 
 ### Shape for Fruit
 
-kebi2024:FruitShape a sh:NodeShape ;
-    sh:targetClass kebi2024:Fruit ;
+kebi2025:FruitShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Fruit ;
 .
 
 
 ### Shape for Grain
 
-kebi2024:GrainShape a sh:NodeShape ;
-    sh:targetClass kebi2024:Grain ;
+kebi2025:GrainShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Grain ;
     sh:property [
-        sh:path kebi2024:grain_containsGlutenIntolerance ;
-        sh:node kebi2024:GlutenShape ;
+        sh:path kebi2025:grain_containsGlutenIntolerance ;
+        sh:node kebi2025:GlutenShape ;
         sh:minCount 1;
         sh:maxCount 1;
     ] ;
@@ -225,131 +225,131 @@ kebi2024:GrainShape a sh:NodeShape ;
 
 ### Shape for Liquid
 
-kebi2024:LiquidShape a sh:NodeShape ;
-    sh:targetClass kebi2024:Liquid ;
+kebi2025:LiquidShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Liquid ;
 .
 
 
 ### Shape for Meat
 
-kebi2024:MeatShape a sh:NodeShape ;
-    sh:targetClass kebi2024:Meat ;
+kebi2025:MeatShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Meat ;
 .
 
 
 ### Shape for Seafood
 
-kebi2024:SeafoodShape a sh:NodeShape ;
-    sh:targetClass kebi2024:Seafood ;
+kebi2025:SeafoodShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Seafood ;
 .
 
 
 ### Shape for Seasoning
 
-kebi2024:SeasoningShape a sh:NodeShape ;
-    sh:targetClass kebi2024:Seasoning ;
+kebi2025:SeasoningShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Seasoning ;
 .
 
 
 ### Shape for Tuber
 
-kebi2024:TuberShape a sh:NodeShape ;
-    sh:targetClass kebi2024:Tuber ;
+kebi2025:TuberShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Tuber ;
 .
 
 
 ### Shape for Vegetable
 
-kebi2024:VegetableShape a sh:NodeShape ;
-    sh:targetClass kebi2024:Vegetable ;
+kebi2025:VegetableShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Vegetable ;
 .
 
 
 ### Shape for Course
 
-kebi2024:CourseShape a sh:NodeShape ;
-    sh:targetClass kebi2024:Course ;
+kebi2025:CourseShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Course ;
 .
 
 
 ### Shape for Appetizer
 
-kebi2024:AppetizerShape a sh:NodeShape ;
-    sh:targetClass kebi2024:Appetizer ;
+kebi2025:AppetizerShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Appetizer ;
 .
 
 
 ### Shape for FirstDish
 
-kebi2024:FirstDishShape a sh:NodeShape ;
-    sh:targetClass kebi2024:FirstDish ;
+kebi2025:FirstDishShape a sh:NodeShape ;
+    sh:targetClass kebi2025:FirstDish ;
 .
 
 
 ### Shape for MainDish
 
-kebi2024:MainDishShape a sh:NodeShape ;
-    sh:targetClass kebi2024:MainDish ;
+kebi2025:MainDishShape a sh:NodeShape ;
+    sh:targetClass kebi2025:MainDish ;
 .
 
 
 ### Shape for SecondCourse
 
-kebi2024:SecondCourseShape a sh:NodeShape ;
-    sh:targetClass kebi2024:SecondCourse ;
+kebi2025:SecondCourseShape a sh:NodeShape ;
+    sh:targetClass kebi2025:SecondCourse ;
 .
 
 
 ### Shape for Sidedish
 
-kebi2024:SidedishShape a sh:NodeShape ;
-    sh:targetClass kebi2024:Sidedish ;
+kebi2025:SidedishShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Sidedish ;
 .
 
 
 ### Shape for Dessert
 
-kebi2024:DessertShape a sh:NodeShape ;
-    sh:targetClass kebi2024:Dessert ;
+kebi2025:DessertShape a sh:NodeShape ;
+    sh:targetClass kebi2025:Dessert ;
 .
 
 
 ### Linking Shapes to Classes
 
-kebi2024:RestaurantShape sh:targetClass kebi2024:Restaurant .
-kebi2024:MenuShape sh:targetClass kebi2024:Menu .
-kebi2024:GuestShape sh:targetClass kebi2024:Guest .
-kebi2024:FoodShape sh:targetClass kebi2024:Food .
+kebi2025:RestaurantShape sh:targetClass kebi2025:Restaurant .
+kebi2025:MenuShape sh:targetClass kebi2025:Menu .
+kebi2025:GuestShape sh:targetClass kebi2025:Guest .
+kebi2025:FoodShape sh:targetClass kebi2025:Food .
 
-kebi2024:MealShape sh:targetClass kebi2024:Meal .
-kebi2024:IngredientShape sh:targetClass kebi2024:Ingredient .
+kebi2025:MealShape sh:targetClass kebi2025:Meal .
+kebi2025:IngredientShape sh:targetClass kebi2025:Ingredient .
 
-kebi2024:AnimalOriginProductShape sh:targetClass kebi2024:AnimalOriginProduct .
-kebi2024:DairyShape sh:targetClass kebi2024:Dairy .
-kebi2024:FruitShape sh:targetClass kebi2024:Fruit .
-kebi2024:GrainShape sh:targetClass kebi2024:Grain .
-kebi2024:LiquidShape sh:targetClass kebi2024:Liquid .
-kebi2024:MeatShape sh:targetClass kebi2024:Meat .
-kebi2024:SeafoodShape sh:targetClass kebi2024:Seafood .
-kebi2024:SeasoningShape sh:targetClass kebi2024:Seasoning .
-kebi2024:TuberShape sh:targetClass kebi2024:Tuber .
+kebi2025:AnimalOriginProductShape sh:targetClass kebi2025:AnimalOriginProduct .
+kebi2025:DairyShape sh:targetClass kebi2025:Dairy .
+kebi2025:FruitShape sh:targetClass kebi2025:Fruit .
+kebi2025:GrainShape sh:targetClass kebi2025:Grain .
+kebi2025:LiquidShape sh:targetClass kebi2025:Liquid .
+kebi2025:MeatShape sh:targetClass kebi2025:Meat .
+kebi2025:SeafoodShape sh:targetClass kebi2025:Seafood .
+kebi2025:SeasoningShape sh:targetClass kebi2025:Seasoning .
+kebi2025:TuberShape sh:targetClass kebi2025:Tuber .
 
-kebi2024:CategoryShape sh:targetClass kebi2024:Category .
+kebi2025:CategoryShape sh:targetClass kebi2025:Category .
 
-kebi2024:VegetarianShape sh:targetClass kebi2024:Vegetarian .
-kebi2024:CarnivorousShape sh:targetClass kebi2024:Carnivorous .
+kebi2025:VegetarianShape sh:targetClass kebi2025:Vegetarian .
+kebi2025:CarnivorousShape sh:targetClass kebi2025:Carnivorous .
 
-kebi2024:AllergyShape sh:targetClass kebi2024:Allergy .
+kebi2025:AllergyShape sh:targetClass kebi2025:Allergy .
 
-kebi2024:LactoseShape sh:targetClass kebi2024:Lactose .
-kebi2024:GlutenShape sh:targetClass kebi2024:Gluten .
+kebi2025:LactoseShape sh:targetClass kebi2025:Lactose .
+kebi2025:GlutenShape sh:targetClass kebi2025:Gluten .
 
-kebi2024:DrinkShape sh:targetClass kebi2024:Drink .
-kebi2024:CourseShape sh:targetClass kebi2024:Course .
+kebi2025:DrinkShape sh:targetClass kebi2025:Drink .
+kebi2025:CourseShape sh:targetClass kebi2025:Course .
 
-kebi2024:AppetizerShape sh:targetClass kebi2024:Appetizer .
-kebi2024:FirstDishShape sh:targetClass kebi2024:FirstDish .
-kebi2024:MainDishShape sh:targetClass kebi2024:MainDish .
-kebi2024:SecondCourseShape sh:targetClass kebi2024:SecondCourse .
-kebi2024:SidedishShape sh:targetClass kebi2024:Sidedish .
-kebi2024:DessertShape sh:targetClass kebi2024:Dessert .
+kebi2025:AppetizerShape sh:targetClass kebi2025:Appetizer .
+kebi2025:FirstDishShape sh:targetClass kebi2025:FirstDish .
+kebi2025:MainDishShape sh:targetClass kebi2025:MainDish .
+kebi2025:SecondCourseShape sh:targetClass kebi2025:SecondCourse .
+kebi2025:SidedishShape sh:targetClass kebi2025:Sidedish .
+kebi2025:DessertShape sh:targetClass kebi2025:Dessert .

@@ -1,0 +1,1213 @@
+@prefix : <http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix swrl: <http://www.w3.org/2003/11/swrl#> .
+@prefix swrla: <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#> .
+@prefix kebi2025: <http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#> .
+@base <http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025> .
+
+<http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025> rdf:type owl:Ontology .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled
+swrla:isRuleEnabled rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#dairy_containsLactoseIntolerance
+kebi2025:dairy_containsLactoseIntolerance rdf:type owl:ObjectProperty ;
+                                          rdfs:domain kebi2025:Dairy ;
+                                          rdfs:range kebi2025:Lactose .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#drink_hasIngredient
+kebi2025:drink_hasIngredient rdf:type owl:ObjectProperty ;
+                             rdfs:domain kebi2025:Drink ;
+                             rdfs:range kebi2025:Ingredient .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#grain_containsGlutenIntolerance
+kebi2025:grain_containsGlutenIntolerance rdf:type owl:ObjectProperty ;
+                                         rdfs:domain kebi2025:Grain ;
+                                         rdfs:range kebi2025:Gluten .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#guest_hasAllergy
+kebi2025:guest_hasAllergy rdf:type owl:ObjectProperty ;
+                          rdfs:domain kebi2025:Guest ;
+                          rdfs:range kebi2025:Allergy .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#guest_hasCategory
+kebi2025:guest_hasCategory rdf:type owl:ObjectProperty ;
+                           rdfs:domain kebi2025:Guest ;
+                           rdfs:range kebi2025:Category .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#guest_hasPreferenceCourse
+kebi2025:guest_hasPreferenceCourse rdf:type owl:ObjectProperty ;
+                                   rdfs:domain kebi2025:Guest ;
+                                   rdfs:range kebi2025:Course .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#guest_isAtRiskForFood
+kebi2025:guest_isAtRiskForFood rdf:type owl:ObjectProperty ;
+                               rdfs:domain kebi2025:Guest ;
+                               rdfs:range kebi2025:Meal .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#meal_containsGlutenIntolerance
+kebi2025:meal_containsGlutenIntolerance rdf:type owl:ObjectProperty ;
+                                        rdfs:subPropertyOf owl:topObjectProperty ;
+                                        rdfs:domain kebi2025:Meal ;
+                                        rdfs:range kebi2025:Gluten .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#meal_containsLactoseIntolerance
+kebi2025:meal_containsLactoseIntolerance rdf:type owl:ObjectProperty ;
+                                         rdfs:domain kebi2025:Meal ;
+                                         rdfs:range kebi2025:Lactose .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#meal_hasCategory
+kebi2025:meal_hasCategory rdf:type owl:ObjectProperty ;
+                          rdfs:domain kebi2025:Meal ;
+                          rdfs:range kebi2025:Category .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#meal_hasCourse
+kebi2025:meal_hasCourse rdf:type owl:ObjectProperty ;
+                        rdfs:domain kebi2025:Meal ;
+                        rdfs:range kebi2025:Course .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#meal_hasIngredient
+kebi2025:meal_hasIngredient rdf:type owl:ObjectProperty ;
+                            rdfs:domain kebi2025:Meal ;
+                            rdfs:range kebi2025:Ingredient .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#menu_containsDrink
+kebi2025:menu_containsDrink rdf:type owl:ObjectProperty ;
+                            rdfs:domain kebi2025:Menu ;
+                            rdfs:range kebi2025:Drink .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#menu_containsMeal
+kebi2025:menu_containsMeal rdf:type owl:ObjectProperty ;
+                           rdfs:domain kebi2025:Menu ;
+                           rdfs:range kebi2025:Meal .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#restaurant_hasGuest
+kebi2025:restaurant_hasGuest rdf:type owl:ObjectProperty ;
+                             rdfs:domain kebi2025:Restaurant ;
+                             rdfs:range kebi2025:Guest .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#restaurant_hasMenu
+kebi2025:restaurant_hasMenu rdf:type owl:ObjectProperty ;
+                            rdfs:domain kebi2025:Restaurant ;
+                            rdfs:range kebi2025:Menu .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#drink_hasKcal
+kebi2025:drink_hasKcal rdf:type owl:DatatypeProperty ;
+                       rdfs:domain kebi2025:Drink ;
+                       rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#food_hasKcal
+kebi2025:food_hasKcal rdf:type owl:DatatypeProperty ;
+                      rdfs:domain kebi2025:Food ;
+                      rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#guest_hasLevelOfCalorieConscious
+kebi2025:guest_hasLevelOfCalorieConscious rdf:type owl:DatatypeProperty ;
+                                          rdfs:domain kebi2025:Guest ;
+                                          rdfs:range [ rdf:type rdfs:Datatype ;
+                                                       owl:onDatatype xsd:integer ;
+                                                       owl:withRestrictions ( [ xsd:minInclusive 0
+                                                                              ]
+                                                                              [ xsd:maxInclusive 3
+                                                                              ]
+                                                                            )
+                                                     ] .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#meal_hasLevelOfCalorieConscious
+kebi2025:meal_hasLevelOfCalorieConscious rdf:type owl:DatatypeProperty ;
+                                         rdfs:domain kebi2025:Meal ;
+                                         rdfs:range [ rdf:type rdfs:Datatype ;
+                                                      owl:onDatatype xsd:integer ;
+                                                      owl:withRestrictions ( [ xsd:minInclusive 0
+                                                                             ]
+                                                                             [ xsd:maxInclusive 3
+                                                                             ]
+                                                                           )
+                                                    ] .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#thing_hasName
+kebi2025:thing_hasName rdf:type owl:DatatypeProperty ;
+                       rdfs:subPropertyOf owl:topDataProperty ;
+                       rdfs:domain owl:Thing ;
+                       rdfs:range xsd:string .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#Allergy
+kebi2025:Allergy rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#AnimalOriginProduct
+kebi2025:AnimalOriginProduct rdf:type owl:Class ;
+                             rdfs:subClassOf kebi2025:Ingredient .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#Appetizer
+kebi2025:Appetizer rdf:type owl:Class ;
+                   rdfs:subClassOf kebi2025:Course .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#Carnivorous
+kebi2025:Carnivorous rdf:type owl:Class ;
+                     rdfs:subClassOf kebi2025:Category .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#Category
+kebi2025:Category rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#Course
+kebi2025:Course rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#Dairy
+kebi2025:Dairy rdf:type owl:Class ;
+               rdfs:subClassOf kebi2025:Ingredient .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#Dessert
+kebi2025:Dessert rdf:type owl:Class ;
+                 rdfs:subClassOf kebi2025:Course .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#Drink
+kebi2025:Drink rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#FirstDish
+kebi2025:FirstDish rdf:type owl:Class ;
+                   rdfs:subClassOf kebi2025:Course .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#Food
+kebi2025:Food rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#Fruit
+kebi2025:Fruit rdf:type owl:Class ;
+               rdfs:subClassOf kebi2025:Ingredient .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#Gluten
+kebi2025:Gluten rdf:type owl:Class ;
+                rdfs:subClassOf kebi2025:Allergy .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#Grain
+kebi2025:Grain rdf:type owl:Class ;
+               rdfs:subClassOf kebi2025:Ingredient .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#Guest
+kebi2025:Guest rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#Ingredient
+kebi2025:Ingredient rdf:type owl:Class ;
+                    rdfs:subClassOf kebi2025:Food .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#Lactose
+kebi2025:Lactose rdf:type owl:Class ;
+                 rdfs:subClassOf kebi2025:Allergy .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#Liquid
+kebi2025:Liquid rdf:type owl:Class ;
+                rdfs:subClassOf kebi2025:Ingredient .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#MainDish
+kebi2025:MainDish rdf:type owl:Class ;
+                  rdfs:subClassOf kebi2025:Course .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#Meal
+kebi2025:Meal rdf:type owl:Class ;
+              rdfs:subClassOf kebi2025:Food .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#Meat
+kebi2025:Meat rdf:type owl:Class ;
+              rdfs:subClassOf kebi2025:Ingredient .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#Menu
+kebi2025:Menu rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#Restaurant
+kebi2025:Restaurant rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#Seafood
+kebi2025:Seafood rdf:type owl:Class ;
+                 rdfs:subClassOf kebi2025:Ingredient .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#Seasoning
+kebi2025:Seasoning rdf:type owl:Class ;
+                   rdfs:subClassOf kebi2025:Ingredient .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#SecondCourse
+kebi2025:SecondCourse rdf:type owl:Class ;
+                      rdfs:subClassOf kebi2025:Course .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#Sidedish
+kebi2025:Sidedish rdf:type owl:Class ;
+                  rdfs:subClassOf kebi2025:Course .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#Tuber
+kebi2025:Tuber rdf:type owl:Class ;
+               rdfs:subClassOf kebi2025:Ingredient .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#Vegetable
+kebi2025:Vegetable rdf:type owl:Class ;
+                   rdfs:subClassOf kebi2025:Ingredient .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#Vegetarian
+kebi2025:Vegetarian rdf:type owl:Class ;
+                    rdfs:subClassOf kebi2025:Category .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#allergy_gluten
+kebi2025:allergy_gluten rdf:type owl:NamedIndividual ,
+                                 kebi2025:Gluten ;
+                        kebi2025:thing_hasName "Gluten" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#allergy_lactose
+kebi2025:allergy_lactose rdf:type owl:NamedIndividual ,
+                                  kebi2025:Lactose ;
+                         kebi2025:thing_hasName "Lactose" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#category_carnivorous
+kebi2025:category_carnivorous rdf:type owl:NamedIndividual ,
+                                       kebi2025:Carnivorous ;
+                              kebi2025:thing_hasName "Carnivorous" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#category_vegetarian
+kebi2025:category_vegetarian rdf:type owl:NamedIndividual ,
+                                      kebi2025:Vegetarian ;
+                             kebi2025:thing_hasName "Vegetarian" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#course_appetizer
+kebi2025:course_appetizer rdf:type owl:NamedIndividual ,
+                                   kebi2025:Appetizer ;
+                          kebi2025:thing_hasName "Appetizer" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#course_dessert
+kebi2025:course_dessert rdf:type owl:NamedIndividual ,
+                                 kebi2025:Dessert ;
+                        kebi2025:thing_hasName "Dessert" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#course_first-dish
+kebi2025:course_first-dish rdf:type owl:NamedIndividual ,
+                                    kebi2025:FirstDish ;
+                           kebi2025:thing_hasName "First Dish" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#course_main-dish
+kebi2025:course_main-dish rdf:type owl:NamedIndividual ,
+                                   kebi2025:MainDish ;
+                          kebi2025:thing_hasName "Main Dish" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#course_second-course
+kebi2025:course_second-course rdf:type owl:NamedIndividual ,
+                                       kebi2025:SecondCourse ;
+                              kebi2025:thing_hasName "Second Course" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#course_sidedish
+kebi2025:course_sidedish rdf:type owl:NamedIndividual ,
+                                  kebi2025:Sidedish ;
+                         kebi2025:thing_hasName "Sidedish" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#drink_coca-cola
+kebi2025:drink_coca-cola rdf:type owl:NamedIndividual ,
+                                  kebi2025:Drink ;
+                         kebi2025:drink_hasIngredient kebi2025:ingredient_sugar-and-food-coloring ,
+                                                      kebi2025:ingredient_water ;
+                         kebi2025:drink_hasKcal 60 ;
+                         kebi2025:thing_hasName "Coca Cola" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#drink_water
+kebi2025:drink_water rdf:type owl:NamedIndividual ,
+                              kebi2025:Drink ;
+                     kebi2025:drink_hasIngredient kebi2025:ingredient_water ;
+                     kebi2025:drink_hasKcal 0 ;
+                     kebi2025:thing_hasName "Water" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#guest_guest1
+kebi2025:guest_guest1 rdf:type owl:NamedIndividual ,
+                               kebi2025:Guest ;
+                      kebi2025:guest_hasAllergy kebi2025:allergy_gluten ;
+                      kebi2025:guest_hasCategory kebi2025:category_carnivorous ;
+                      kebi2025:guest_hasPreferenceCourse kebi2025:course_appetizer ;
+                      kebi2025:guest_hasLevelOfCalorieConscious 2 ,
+                                                                3 ;
+                      kebi2025:thing_hasName "Valentino Rossi" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#guest_guest2
+kebi2025:guest_guest2 rdf:type owl:NamedIndividual ,
+                               kebi2025:Guest ;
+                      kebi2025:guest_hasAllergy kebi2025:allergy_lactose ;
+                      kebi2025:guest_hasCategory kebi2025:category_vegetarian ;
+                      kebi2025:guest_hasPreferenceCourse kebi2025:course_first-dish ;
+                      kebi2025:guest_hasLevelOfCalorieConscious 0 ,
+                                                                1 ,
+                                                                2 ,
+                                                                3 ;
+                      kebi2025:thing_hasName "Lorenzo Jovanotti" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#ingredient_0-type-flour
+kebi2025:ingredient_0-type-flour rdf:type owl:NamedIndividual ,
+                                          kebi2025:Grain ;
+                                 kebi2025:grain_containsGlutenIntolerance kebi2025:allergy_gluten ;
+                                 kebi2025:food_hasKcal 500 ;
+                                 kebi2025:thing_hasName "Flour type 0" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#ingredient_apple
+kebi2025:ingredient_apple rdf:type owl:NamedIndividual ,
+                                   kebi2025:Fruit ;
+                          kebi2025:food_hasKcal 35 ;
+                          kebi2025:thing_hasName "Apple" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#ingredient_banana
+kebi2025:ingredient_banana rdf:type owl:NamedIndividual ,
+                                    kebi2025:Fruit ;
+                           kebi2025:food_hasKcal 40 ;
+                           kebi2025:thing_hasName "Banana" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#ingredient_bechamel
+kebi2025:ingredient_bechamel rdf:type owl:NamedIndividual ,
+                                      kebi2025:Dairy ;
+                             kebi2025:dairy_containsLactoseIntolerance kebi2025:allergy_lactose ;
+                             kebi2025:food_hasKcal 105 ;
+                             kebi2025:thing_hasName "Bechamel" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#ingredient_black-pepper
+kebi2025:ingredient_black-pepper rdf:type owl:NamedIndividual ,
+                                          kebi2025:Seasoning ;
+                                 kebi2025:food_hasKcal 25 ;
+                                 kebi2025:thing_hasName "Black Pepper" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#ingredient_cabbage
+kebi2025:ingredient_cabbage rdf:type owl:NamedIndividual ,
+                                     kebi2025:Vegetable ;
+                            kebi2025:food_hasKcal 25 ;
+                            kebi2025:thing_hasName "Cabbage" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#ingredient_calamari
+kebi2025:ingredient_calamari rdf:type owl:NamedIndividual ,
+                                      kebi2025:Seafood ;
+                             kebi2025:food_hasKcal 50 ;
+                             kebi2025:thing_hasName "Calamari" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#ingredient_carrot
+kebi2025:ingredient_carrot rdf:type owl:NamedIndividual ,
+                                    kebi2025:Vegetable ;
+                           kebi2025:food_hasKcal 27 ;
+                           kebi2025:thing_hasName "Carrot" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#ingredient_chili
+kebi2025:ingredient_chili rdf:type owl:NamedIndividual ,
+                                   kebi2025:Seasoning ;
+                          kebi2025:food_hasKcal 15 ;
+                          kebi2025:thing_hasName "Chili" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#ingredient_ciauscolo
+kebi2025:ingredient_ciauscolo rdf:type owl:NamedIndividual ,
+                                       kebi2025:Meat ;
+                              kebi2025:food_hasKcal 70 ;
+                              kebi2025:thing_hasName "Ciauscolo" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#ingredient_cows-cheese
+kebi2025:ingredient_cows-cheese rdf:type owl:NamedIndividual ,
+                                         kebi2025:Dairy ;
+                                kebi2025:dairy_containsLactoseIntolerance kebi2025:allergy_lactose ;
+                                kebi2025:food_hasKcal 115 ;
+                                kebi2025:thing_hasName "Cow's Cheese" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#ingredient_egg
+kebi2025:ingredient_egg rdf:type owl:NamedIndividual ,
+                                 kebi2025:AnimalOriginProduct ;
+                        kebi2025:food_hasKcal 80 ;
+                        kebi2025:thing_hasName "Egg" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#ingredient_eggplant
+kebi2025:ingredient_eggplant rdf:type owl:NamedIndividual ,
+                                      kebi2025:Vegetable ;
+                             kebi2025:food_hasKcal 18 ;
+                             kebi2025:thing_hasName "Eggplant" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#ingredient_garlic
+kebi2025:ingredient_garlic rdf:type owl:NamedIndividual ,
+                                    kebi2025:Seasoning ;
+                           kebi2025:food_hasKcal 3 ;
+                           kebi2025:thing_hasName "Garlic" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#ingredient_ham
+kebi2025:ingredient_ham rdf:type owl:NamedIndividual ,
+                                 kebi2025:Meat ;
+                        kebi2025:food_hasKcal 45 ;
+                        kebi2025:thing_hasName "Ham" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#ingredient_lettuce
+kebi2025:ingredient_lettuce rdf:type owl:NamedIndividual ,
+                                     kebi2025:Vegetable ;
+                            kebi2025:food_hasKcal 25 ;
+                            kebi2025:thing_hasName "Lettuce" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#ingredient_mais
+kebi2025:ingredient_mais rdf:type owl:NamedIndividual ,
+                                  kebi2025:Vegetable ;
+                         kebi2025:food_hasKcal 50 ;
+                         kebi2025:thing_hasName "Mais" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#ingredient_minced-meat
+kebi2025:ingredient_minced-meat rdf:type owl:NamedIndividual ,
+                                         kebi2025:Meat ;
+                                kebi2025:food_hasKcal 120 ;
+                                kebi2025:thing_hasName "Minced Meat" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#ingredient_mozzarella-cheese
+kebi2025:ingredient_mozzarella-cheese rdf:type owl:NamedIndividual ,
+                                               kebi2025:Dairy ;
+                                      kebi2025:dairy_containsLactoseIntolerance kebi2025:allergy_lactose ;
+                                      kebi2025:food_hasKcal 100 ;
+                                      kebi2025:thing_hasName "Mozzarella Cheese" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#ingredient_mussel
+kebi2025:ingredient_mussel rdf:type owl:NamedIndividual ,
+                                    kebi2025:Seafood ;
+                           kebi2025:food_hasKcal 40 ;
+                           kebi2025:thing_hasName "Mussel" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#ingredient_oil
+kebi2025:ingredient_oil rdf:type owl:NamedIndividual ,
+                                 kebi2025:Vegetable ;
+                        kebi2025:food_hasKcal 60 ;
+                        kebi2025:thing_hasName "Oil" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#ingredient_parmesan
+kebi2025:ingredient_parmesan rdf:type owl:NamedIndividual ,
+                                      kebi2025:Dairy ;
+                             kebi2025:dairy_containsLactoseIntolerance kebi2025:allergy_lactose ;
+                             kebi2025:food_hasKcal 75 ;
+                             kebi2025:thing_hasName "Parmesan" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#ingredient_pasta
+kebi2025:ingredient_pasta rdf:type owl:NamedIndividual ,
+                                   kebi2025:Grain ;
+                          kebi2025:grain_containsGlutenIntolerance kebi2025:allergy_gluten ;
+                          kebi2025:food_hasKcal 300 ;
+                          kebi2025:thing_hasName "Pasta" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#ingredient_pork-cheek
+kebi2025:ingredient_pork-cheek rdf:type owl:NamedIndividual ,
+                                        kebi2025:Meat ;
+                               kebi2025:food_hasKcal 150 ;
+                               kebi2025:thing_hasName "Pork Cheek" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#ingredient_pork-chop
+kebi2025:ingredient_pork-chop rdf:type owl:NamedIndividual ,
+                                       kebi2025:Meat ;
+                              kebi2025:food_hasKcal 125 ;
+                              kebi2025:thing_hasName "Pork Chop" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#ingredient_pork-rib
+kebi2025:ingredient_pork-rib rdf:type owl:NamedIndividual ,
+                                      kebi2025:Meat ;
+                             kebi2025:food_hasKcal 70 ;
+                             kebi2025:thing_hasName "Pork Rib" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#ingredient_potato
+kebi2025:ingredient_potato rdf:type owl:NamedIndividual ,
+                                    kebi2025:Tuber ;
+                           kebi2025:food_hasKcal 450 ;
+                           kebi2025:thing_hasName "Potato" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#ingredient_puff-pastry
+kebi2025:ingredient_puff-pastry rdf:type owl:NamedIndividual ,
+                                         kebi2025:Grain ;
+                                kebi2025:grain_containsGlutenIntolerance kebi2025:allergy_gluten ;
+                                kebi2025:food_hasKcal 150 ;
+                                kebi2025:thing_hasName "Puff Pastry" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#ingredient_salame
+kebi2025:ingredient_salame rdf:type owl:NamedIndividual ,
+                                    kebi2025:Meat ;
+                           kebi2025:food_hasKcal 50 ;
+                           kebi2025:thing_hasName "Salame" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#ingredient_salmon
+kebi2025:ingredient_salmon rdf:type owl:NamedIndividual ,
+                                    kebi2025:Seafood ;
+                           kebi2025:food_hasKcal 150 ;
+                           kebi2025:thing_hasName "Salmon" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#ingredient_salt
+kebi2025:ingredient_salt rdf:type owl:NamedIndividual ,
+                                  kebi2025:Seasoning ;
+                         kebi2025:food_hasKcal 0 ;
+                         kebi2025:thing_hasName "Salt" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#ingredient_sausage
+kebi2025:ingredient_sausage rdf:type owl:NamedIndividual ,
+                                     kebi2025:Meat ;
+                            kebi2025:food_hasKcal 205 ;
+                            kebi2025:thing_hasName "Sausage" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#ingredient_sheeps-cheese
+kebi2025:ingredient_sheeps-cheese rdf:type owl:NamedIndividual ,
+                                           kebi2025:Dairy ;
+                                  kebi2025:dairy_containsLactoseIntolerance kebi2025:allergy_lactose ;
+                                  kebi2025:food_hasKcal 135 ;
+                                  kebi2025:thing_hasName "Sheep's Cheese" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#ingredient_shrimp
+kebi2025:ingredient_shrimp rdf:type owl:NamedIndividual ,
+                                    kebi2025:Seafood ;
+                           kebi2025:food_hasKcal 35 ;
+                           kebi2025:thing_hasName "Shrimp" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#ingredient_steak
+kebi2025:ingredient_steak rdf:type owl:NamedIndividual ,
+                                   kebi2025:Meat ;
+                          kebi2025:food_hasKcal 485 ;
+                          kebi2025:thing_hasName "Steak" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#ingredient_strawberry
+kebi2025:ingredient_strawberry rdf:type owl:NamedIndividual ,
+                                        kebi2025:Fruit ;
+                               kebi2025:food_hasKcal 22 ;
+                               kebi2025:thing_hasName "Strawberry" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#ingredient_sugar-and-food-coloring
+kebi2025:ingredient_sugar-and-food-coloring rdf:type owl:NamedIndividual ,
+                                                     kebi2025:Liquid ;
+                                            kebi2025:food_hasKcal 60 ;
+                                            kebi2025:thing_hasName "Sugar and Food Coloring" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#ingredient_sword-fish
+kebi2025:ingredient_sword-fish rdf:type owl:NamedIndividual ,
+                                        kebi2025:Seafood ;
+                               kebi2025:food_hasKcal 120 ;
+                               kebi2025:thing_hasName "Sword Fish" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#ingredient_tomato
+kebi2025:ingredient_tomato rdf:type owl:NamedIndividual ,
+                                    kebi2025:Vegetable ;
+                           kebi2025:food_hasKcal 30 ;
+                           kebi2025:thing_hasName "Tomato" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#ingredient_water
+kebi2025:ingredient_water rdf:type owl:NamedIndividual ,
+                                   kebi2025:Liquid ;
+                          kebi2025:food_hasKcal 0 ;
+                          kebi2025:thing_hasName "Water" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#meal_affettati-misti
+kebi2025:meal_affettati-misti rdf:type owl:NamedIndividual ,
+                                       kebi2025:Meal ;
+                              kebi2025:meal_hasCategory kebi2025:category_carnivorous ;
+                              kebi2025:meal_hasCourse kebi2025:course_appetizer ;
+                              kebi2025:meal_hasIngredient kebi2025:ingredient_ciauscolo ,
+                                                          kebi2025:ingredient_ham ,
+                                                          kebi2025:ingredient_salame ;
+                              kebi2025:food_hasKcal 190 ;
+                              kebi2025:meal_hasLevelOfCalorieConscious 0 ,
+                                                                       1 ,
+                                                                       2 ;
+                              kebi2025:thing_hasName "Affettati Misti" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#meal_bistecca-alla-fiorentina
+kebi2025:meal_bistecca-alla-fiorentina rdf:type owl:NamedIndividual ,
+                                                kebi2025:Meal ;
+                                       kebi2025:meal_hasCategory kebi2025:category_carnivorous ;
+                                       kebi2025:meal_hasCourse kebi2025:course_second-course ;
+                                       kebi2025:meal_hasIngredient kebi2025:ingredient_oil ,
+                                                                   kebi2025:ingredient_salt ,
+                                                                   kebi2025:ingredient_steak ;
+                                       kebi2025:food_hasKcal 545 ;
+                                       kebi2025:meal_hasLevelOfCalorieConscious 0 ,
+                                                                                1 ;
+                                       kebi2025:thing_hasName "Bistecca alla Fiorentina" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#meal_formaggi-misti
+kebi2025:meal_formaggi-misti rdf:type owl:NamedIndividual ,
+                                      kebi2025:Meal ;
+                             kebi2025:meal_hasCategory kebi2025:category_carnivorous ,
+                                                       kebi2025:category_vegetarian ;
+                             kebi2025:meal_hasCourse kebi2025:course_appetizer ;
+                             kebi2025:meal_hasIngredient kebi2025:ingredient_cows-cheese ,
+                                                         kebi2025:ingredient_parmesan ,
+                                                         kebi2025:ingredient_sheeps-cheese ;
+                             kebi2025:food_hasKcal 325 ;
+                             kebi2025:meal_hasLevelOfCalorieConscious 0 ,
+                                                                      1 ;
+                             kebi2025:thing_hasName "Formaggi Misti" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#meal_fruit-salad
+kebi2025:meal_fruit-salad rdf:type owl:NamedIndividual ,
+                                   kebi2025:Meal ;
+                          kebi2025:meal_hasCategory kebi2025:category_vegetarian ;
+                          kebi2025:meal_hasCourse kebi2025:course_dessert ;
+                          kebi2025:meal_hasIngredient kebi2025:ingredient_apple ,
+                                                      kebi2025:ingredient_banana ,
+                                                      kebi2025:ingredient_strawberry ;
+                          kebi2025:food_hasKcal 97 ;
+                          kebi2025:meal_hasLevelOfCalorieConscious 0 ,
+                                                                   1 ,
+                                                                   2 ,
+                                                                   3 ;
+                          kebi2025:thing_hasName "Fruit Salad" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#meal_grigliata-di-maiale-mista
+kebi2025:meal_grigliata-di-maiale-mista rdf:type owl:NamedIndividual ,
+                                                 kebi2025:Meal ;
+                                        kebi2025:meal_hasCategory kebi2025:category_carnivorous ;
+                                        kebi2025:meal_hasCourse kebi2025:course_second-course ;
+                                        kebi2025:meal_hasIngredient kebi2025:ingredient_pork-chop ,
+                                                                    kebi2025:ingredient_pork-rib ,
+                                                                    kebi2025:ingredient_salt ,
+                                                                    kebi2025:ingredient_sausage ;
+                                        kebi2025:food_hasKcal 400 ;
+                                        kebi2025:meal_hasLevelOfCalorieConscious 0 ,
+                                                                                 1 ;
+                                        kebi2025:thing_hasName "Grigliata di Maiale Mista" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#meal_insalata-mista
+kebi2025:meal_insalata-mista rdf:type owl:NamedIndividual ,
+                                      kebi2025:Meal ;
+                             kebi2025:meal_hasCategory kebi2025:category_vegetarian ;
+                             kebi2025:meal_hasCourse kebi2025:course_sidedish ;
+                             kebi2025:meal_hasIngredient kebi2025:ingredient_lettuce ,
+                                                         kebi2025:ingredient_mais ,
+                                                         kebi2025:ingredient_oil ,
+                                                         kebi2025:ingredient_salt ;
+                             kebi2025:food_hasKcal 135 ;
+                             kebi2025:meal_hasLevelOfCalorieConscious 0 ,
+                                                                      1 ,
+                                                                      2 ,
+                                                                      3 ;
+                             kebi2025:thing_hasName "Insalata Mista" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#meal_involtini-primavera
+kebi2025:meal_involtini-primavera rdf:type owl:NamedIndividual ,
+                                           kebi2025:Meal ;
+                                  kebi2025:meal_hasCategory kebi2025:category_vegetarian ;
+                                  kebi2025:meal_hasCourse kebi2025:course_appetizer ;
+                                  kebi2025:meal_hasIngredient kebi2025:ingredient_cabbage ,
+                                                              kebi2025:ingredient_carrot ,
+                                                              kebi2025:ingredient_oil ,
+                                                              kebi2025:ingredient_puff-pastry ,
+                                                              kebi2025:ingredient_salt ;
+                                  kebi2025:food_hasKcal 262 ;
+                                  kebi2025:meal_hasLevelOfCalorieConscious 0 ,
+                                                                           1 ,
+                                                                           2 ,
+                                                                           3 ;
+                                  kebi2025:thing_hasName "Involtini Primavera" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#meal_lasagne
+kebi2025:meal_lasagne rdf:type owl:NamedIndividual ,
+                               kebi2025:Meal ;
+                      kebi2025:meal_hasCategory kebi2025:category_carnivorous ;
+                      kebi2025:meal_hasCourse kebi2025:course_first-dish ;
+                      kebi2025:meal_hasIngredient kebi2025:ingredient_bechamel ,
+                                                  kebi2025:ingredient_minced-meat ,
+                                                  kebi2025:ingredient_oil ,
+                                                  kebi2025:ingredient_parmesan ,
+                                                  kebi2025:ingredient_pasta ,
+                                                  kebi2025:ingredient_salt ,
+                                                  kebi2025:ingredient_tomato ;
+                      kebi2025:food_hasKcal 717 ;
+                      kebi2025:meal_hasLevelOfCalorieConscious 0 ,
+                                                               1 ;
+                      kebi2025:thing_hasName "Lasagne" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#meal_melanzane-grigliate
+kebi2025:meal_melanzane-grigliate rdf:type owl:NamedIndividual ,
+                                           kebi2025:Meal ;
+                                  kebi2025:meal_hasCategory kebi2025:category_vegetarian ;
+                                  kebi2025:meal_hasCourse kebi2025:course_sidedish ;
+                                  kebi2025:meal_hasIngredient kebi2025:ingredient_eggplant ,
+                                                              kebi2025:ingredient_oil ,
+                                                              kebi2025:ingredient_salt ;
+                                  kebi2025:food_hasKcal 78 ;
+                                  kebi2025:meal_hasLevelOfCalorieConscious 0 ,
+                                                                           1 ,
+                                                                           2 ,
+                                                                           3 ;
+                                  kebi2025:thing_hasName "Melanzane Grigliate" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#meal_patatine-fritte
+kebi2025:meal_patatine-fritte rdf:type owl:NamedIndividual ,
+                                       kebi2025:Meal ;
+                              kebi2025:meal_hasCategory kebi2025:category_carnivorous ,
+                                                        kebi2025:category_vegetarian ;
+                              kebi2025:meal_hasCourse kebi2025:course_sidedish ;
+                              kebi2025:meal_hasIngredient kebi2025:ingredient_oil ,
+                                                          kebi2025:ingredient_potato ,
+                                                          kebi2025:ingredient_salt ;
+                              kebi2025:food_hasKcal 510 ;
+                              kebi2025:meal_hasLevelOfCalorieConscious 0 ;
+                              kebi2025:thing_hasName "Patatine Fritte" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#meal_pesce-arrosto
+kebi2025:meal_pesce-arrosto rdf:type owl:NamedIndividual ,
+                                     kebi2025:Meal ;
+                            kebi2025:meal_hasCategory kebi2025:category_carnivorous ;
+                            kebi2025:meal_hasCourse kebi2025:course_second-course ;
+                            kebi2025:meal_hasIngredient kebi2025:ingredient_calamari ,
+                                                        kebi2025:ingredient_oil ,
+                                                        kebi2025:ingredient_salmon ,
+                                                        kebi2025:ingredient_salt ,
+                                                        kebi2025:ingredient_sword-fish ;
+                            kebi2025:food_hasKcal 455 ;
+                            kebi2025:meal_hasLevelOfCalorieConscious 0 ,
+                                                                     1 ,
+                                                                     2 ,
+                                                                     3 ;
+                            kebi2025:thing_hasName "Pesce Arrosto" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#meal_pizza-bianca
+kebi2025:meal_pizza-bianca rdf:type owl:NamedIndividual ,
+                                    kebi2025:Meal ;
+                           kebi2025:meal_hasCategory kebi2025:category_carnivorous ,
+                                                     kebi2025:category_vegetarian ;
+                           kebi2025:meal_hasCourse kebi2025:course_main-dish ;
+                           kebi2025:meal_hasIngredient kebi2025:ingredient_0-type-flour ,
+                                                       kebi2025:ingredient_oil ,
+                                                       kebi2025:ingredient_salt ;
+                           kebi2025:food_hasKcal 560 ;
+                           kebi2025:meal_hasLevelOfCalorieConscious 0 ,
+                                                                    1 ,
+                                                                    2 ;
+                           kebi2025:thing_hasName "Pizza Bianca" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#meal_pizza-margherita
+kebi2025:meal_pizza-margherita rdf:type owl:NamedIndividual ,
+                                        kebi2025:Meal ;
+                               kebi2025:meal_hasCategory kebi2025:category_carnivorous ,
+                                                         kebi2025:category_vegetarian ;
+                               kebi2025:meal_hasCourse kebi2025:course_main-dish ;
+                               kebi2025:meal_hasIngredient kebi2025:ingredient_0-type-flour ,
+                                                           kebi2025:ingredient_cows-cheese ,
+                                                           kebi2025:ingredient_oil ,
+                                                           kebi2025:ingredient_salt ,
+                                                           kebi2025:ingredient_tomato ;
+                               kebi2025:food_hasKcal 705 ;
+                               kebi2025:meal_hasLevelOfCalorieConscious 0 ,
+                                                                        1 ;
+                               kebi2025:thing_hasName "Pizza Margherita" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#meal_rigatoni-alla-carbonara
+kebi2025:meal_rigatoni-alla-carbonara rdf:type owl:NamedIndividual ,
+                                               kebi2025:Meal ;
+                                      kebi2025:meal_hasCategory kebi2025:category_carnivorous ;
+                                      kebi2025:meal_hasCourse kebi2025:course_first-dish ;
+                                      kebi2025:meal_hasIngredient kebi2025:ingredient_black-pepper ,
+                                                                  kebi2025:ingredient_egg ,
+                                                                  kebi2025:ingredient_oil ,
+                                                                  kebi2025:ingredient_pasta ,
+                                                                  kebi2025:ingredient_pork-cheek ,
+                                                                  kebi2025:ingredient_salt ;
+                                      kebi2025:food_hasKcal 705 ;
+                                      kebi2025:meal_hasLevelOfCalorieConscious 0 ,
+                                                                               1 ;
+                                      kebi2025:thing_hasName "Rigatoni alla Carbonara" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#meal_spaghetti-aglio-olio-e-peperoncino
+kebi2025:meal_spaghetti-aglio-olio-e-peperoncino rdf:type owl:NamedIndividual ,
+                                                          kebi2025:Meal ;
+                                                 kebi2025:meal_hasCategory kebi2025:category_carnivorous ,
+                                                                           kebi2025:category_vegetarian ;
+                                                 kebi2025:meal_hasCourse kebi2025:course_first-dish ;
+                                                 kebi2025:meal_hasIngredient kebi2025:ingredient_chili ,
+                                                                             kebi2025:ingredient_garlic ,
+                                                                             kebi2025:ingredient_oil ,
+                                                                             kebi2025:ingredient_pasta ,
+                                                                             kebi2025:ingredient_salt ;
+                                                 kebi2025:food_hasKcal 378 ;
+                                                 kebi2025:meal_hasLevelOfCalorieConscious 0 ,
+                                                                                          1 ,
+                                                                                          2 ;
+                                                 kebi2025:thing_hasName "Spaghetti Aglio Olio e Peperoncino" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#meal_tagliatelle-alla-marinara
+kebi2025:meal_tagliatelle-alla-marinara rdf:type owl:NamedIndividual ,
+                                                 kebi2025:Meal ;
+                                        kebi2025:meal_hasCategory kebi2025:category_carnivorous ;
+                                        kebi2025:meal_hasCourse kebi2025:course_first-dish ;
+                                        kebi2025:meal_hasIngredient kebi2025:ingredient_mussel ,
+                                                                    kebi2025:ingredient_oil ,
+                                                                    kebi2025:ingredient_pasta ,
+                                                                    kebi2025:ingredient_salt ,
+                                                                    kebi2025:ingredient_shrimp ;
+                                        kebi2025:food_hasKcal 435 ;
+                                        kebi2025:meal_hasLevelOfCalorieConscious 0 ,
+                                                                                 1 ,
+                                                                                 2 ;
+                                        kebi2025:thing_hasName "Tagliatelle alla Marinara" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#meal_trofie-cacio-e-pepe
+kebi2025:meal_trofie-cacio-e-pepe rdf:type owl:NamedIndividual ,
+                                           kebi2025:Meal ;
+                                  kebi2025:meal_hasCategory kebi2025:category_carnivorous ,
+                                                            kebi2025:category_vegetarian ;
+                                  kebi2025:meal_hasCourse kebi2025:course_first-dish ;
+                                  kebi2025:meal_hasIngredient kebi2025:ingredient_black-pepper ,
+                                                              kebi2025:ingredient_oil ,
+                                                              kebi2025:ingredient_pasta ,
+                                                              kebi2025:ingredient_salt ,
+                                                              kebi2025:ingredient_sheeps-cheese ;
+                                  kebi2025:food_hasKcal 520 ;
+                                  kebi2025:meal_hasLevelOfCalorieConscious 0 ,
+                                                                           1 ,
+                                                                           2 ;
+                                  kebi2025:thing_hasName "Trofie Cacio e Pepe" .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#menu_italian-menu
+kebi2025:menu_italian-menu rdf:type owl:NamedIndividual ,
+                                    kebi2025:Menu ;
+                           kebi2025:menu_containsDrink kebi2025:drink_coca-cola ,
+                                                       kebi2025:drink_water ;
+                           kebi2025:menu_containsMeal kebi2025:meal_affettati-misti ,
+                                                      kebi2025:meal_bistecca-alla-fiorentina ,
+                                                      kebi2025:meal_formaggi-misti ,
+                                                      kebi2025:meal_fruit-salad ,
+                                                      kebi2025:meal_grigliata-di-maiale-mista ,
+                                                      kebi2025:meal_insalata-mista ,
+                                                      kebi2025:meal_involtini-primavera ,
+                                                      kebi2025:meal_lasagne ,
+                                                      kebi2025:meal_melanzane-grigliate ,
+                                                      kebi2025:meal_patatine-fritte ,
+                                                      kebi2025:meal_pesce-arrosto ,
+                                                      kebi2025:meal_pizza-bianca ,
+                                                      kebi2025:meal_pizza-margherita ,
+                                                      kebi2025:meal_rigatoni-alla-carbonara ,
+                                                      kebi2025:meal_spaghetti-aglio-olio-e-peperoncino ,
+                                                      kebi2025:meal_tagliatelle-alla-marinara ,
+                                                      kebi2025:meal_trofie-cacio-e-pepe .
+
+
+###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#restaurant_our-restaurant
+kebi2025:restaurant_our-restaurant rdf:type owl:NamedIndividual ,
+                                            kebi2025:Restaurant ;
+                                   kebi2025:restaurant_hasGuest kebi2025:guest_guest1 ,
+                                                                kebi2025:guest_guest2 ;
+                                   kebi2025:restaurant_hasMenu kebi2025:menu_italian-menu ;
+                                   kebi2025:thing_hasName "Ristorante Pizzeria Chiocchi Rossini" .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDifferent ;
+  owl:distinctMembers ( kebi2025:meal_affettati-misti
+                      )
+] .
+
+
+#################################################################
+#    Rules
+#################################################################
+
+kebi2025:guest rdf:type swrl:Variable .
+
+kebi2025:allergy rdf:type swrl:Variable .
+
+kebi2025:meal rdf:type swrl:Variable .
+
+kebi2025:ingredient rdf:type swrl:Variable .
+
+kebi2025:dairy rdf:type swrl:Variable .
+
+kebi2025:gluten rdf:type swrl:Variable .
+
+[ swrla:isRuleEnabled "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "GuestIsAtRiskForFoodGluten" ;
+   rdf:type swrl:Imp ;
+   swrl:body [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:ClassAtom ;
+                           swrl:classPredicate kebi2025:Guest ;
+                           swrl:argument1 kebi2025:guest
+                         ] ;
+               rdf:rest [ rdf:type swrl:AtomList ;
+                          rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                      swrl:propertyPredicate kebi2025:guest_hasAllergy ;
+                                      swrl:argument1 kebi2025:guest ;
+                                      swrl:argument2 kebi2025:allergy
+                                    ] ;
+                          rdf:rest [ rdf:type swrl:AtomList ;
+                                     rdf:first [ rdf:type swrl:ClassAtom ;
+                                                 swrl:classPredicate kebi2025:Meal ;
+                                                 swrl:argument1 kebi2025:meal
+                                               ] ;
+                                     rdf:rest [ rdf:type swrl:AtomList ;
+                                                rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                                            swrl:propertyPredicate kebi2025:meal_containsGlutenIntolerance ;
+                                                            swrl:argument1 kebi2025:meal ;
+                                                            swrl:argument2 kebi2025:allergy
+                                                          ] ;
+                                                rdf:rest rdf:nil
+                                              ]
+                                   ]
+                        ]
+             ] ;
+   swrl:head [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                           swrl:propertyPredicate kebi2025:guest_isAtRiskForFood ;
+                           swrl:argument1 kebi2025:guest ;
+                           swrl:argument2 kebi2025:meal
+                         ] ;
+               rdf:rest rdf:nil
+             ]
+ ] .
+
+[ swrla:isRuleEnabled "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "GuestIsAtRiskForFoodLactose" ;
+   rdf:type swrl:Imp ;
+   swrl:body [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:ClassAtom ;
+                           swrl:classPredicate kebi2025:Guest ;
+                           swrl:argument1 kebi2025:guest
+                         ] ;
+               rdf:rest [ rdf:type swrl:AtomList ;
+                          rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                      swrl:propertyPredicate kebi2025:guest_hasAllergy ;
+                                      swrl:argument1 kebi2025:guest ;
+                                      swrl:argument2 kebi2025:allergy
+                                    ] ;
+                          rdf:rest [ rdf:type swrl:AtomList ;
+                                     rdf:first [ rdf:type swrl:ClassAtom ;
+                                                 swrl:classPredicate kebi2025:Meal ;
+                                                 swrl:argument1 kebi2025:meal
+                                               ] ;
+                                     rdf:rest [ rdf:type swrl:AtomList ;
+                                                rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                                            swrl:propertyPredicate kebi2025:meal_containsLactoseIntolerance ;
+                                                            swrl:argument1 kebi2025:meal ;
+                                                            swrl:argument2 kebi2025:allergy
+                                                          ] ;
+                                                rdf:rest rdf:nil
+                                              ]
+                                   ]
+                        ]
+             ] ;
+   swrl:head [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                           swrl:propertyPredicate kebi2025:guest_isAtRiskForFood ;
+                           swrl:argument1 kebi2025:guest ;
+                           swrl:argument2 kebi2025:meal
+                         ] ;
+               rdf:rest rdf:nil
+             ]
+ ] .
+
+[ swrla:isRuleEnabled "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "MealContainsLactoseIntolerance" ;
+   rdf:type swrl:Imp ;
+   swrl:body [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:ClassAtom ;
+                           swrl:classPredicate kebi2025:Meal ;
+                           swrl:argument1 kebi2025:meal
+                         ] ;
+               rdf:rest [ rdf:type swrl:AtomList ;
+                          rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                      swrl:propertyPredicate kebi2025:meal_hasIngredient ;
+                                      swrl:argument1 kebi2025:meal ;
+                                      swrl:argument2 kebi2025:ingredient
+                                    ] ;
+                          rdf:rest [ rdf:type swrl:AtomList ;
+                                     rdf:first [ rdf:type swrl:ClassAtom ;
+                                                 swrl:classPredicate kebi2025:Ingredient ;
+                                                 swrl:argument1 kebi2025:ingredient
+                                               ] ;
+                                     rdf:rest [ rdf:type swrl:AtomList ;
+                                                rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                                            swrl:propertyPredicate kebi2025:dairy_containsLactoseIntolerance ;
+                                                            swrl:argument1 kebi2025:ingredient ;
+                                                            swrl:argument2 kebi2025:dairy
+                                                          ] ;
+                                                rdf:rest rdf:nil
+                                              ]
+                                   ]
+                        ]
+             ] ;
+   swrl:head [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                           swrl:propertyPredicate kebi2025:meal_containsLactoseIntolerance ;
+                           swrl:argument1 kebi2025:meal ;
+                           swrl:argument2 kebi2025:dairy
+                         ] ;
+               rdf:rest rdf:nil
+             ]
+ ] .
+
+[ swrla:isRuleEnabled "true"^^xsd:boolean ;
+   rdfs:comment "" ;
+   rdfs:label "MealContainsGlutenIntolerance" ;
+   rdf:type swrl:Imp ;
+   swrl:body [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:ClassAtom ;
+                           swrl:classPredicate kebi2025:Meal ;
+                           swrl:argument1 kebi2025:meal
+                         ] ;
+               rdf:rest [ rdf:type swrl:AtomList ;
+                          rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                      swrl:propertyPredicate kebi2025:meal_hasIngredient ;
+                                      swrl:argument1 kebi2025:meal ;
+                                      swrl:argument2 kebi2025:ingredient
+                                    ] ;
+                          rdf:rest [ rdf:type swrl:AtomList ;
+                                     rdf:first [ rdf:type swrl:ClassAtom ;
+                                                 swrl:classPredicate kebi2025:Ingredient ;
+                                                 swrl:argument1 kebi2025:ingredient
+                                               ] ;
+                                     rdf:rest [ rdf:type swrl:AtomList ;
+                                                rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                                            swrl:propertyPredicate kebi2025:grain_containsGlutenIntolerance ;
+                                                            swrl:argument1 kebi2025:ingredient ;
+                                                            swrl:argument2 kebi2025:gluten
+                                                          ] ;
+                                                rdf:rest rdf:nil
+                                              ]
+                                   ]
+                        ]
+             ] ;
+   swrl:head [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                           swrl:propertyPredicate kebi2025:meal_containsGlutenIntolerance ;
+                           swrl:argument1 kebi2025:meal ;
+                           swrl:argument2 kebi2025:gluten
+                         ] ;
+               rdf:rest rdf:nil
+             ]
+ ] .
+
+###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi

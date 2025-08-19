@@ -420,6 +420,7 @@ kebi2025:guest_guest2 rdf:type owl:NamedIndividual ,
 ###  http://www.semanticweb.org/simone.micarelli-davide.nappo/kebi2025#guest_guest3
 kebi2025:guest_guest3 rdf:type owl:NamedIndividual ,
                                kebi2025:Guest ;
+                      kebi2025:guest_hasAllergy kebi2025:allergy_gluten ;
                       kebi2025:guest_hasCategory kebi2025:category_omnivore ;
                       kebi2025:guest_hasPreferenceCourse kebi2025:course_second-course ;
                       kebi2025:guest_hasLevelOfCalorieConscious 3 ;
@@ -1083,7 +1084,7 @@ kebi2025:meal_spaghetti-aglio-olio-e-peperoncino rdf:type owl:NamedIndividual ,
                                                                              kebi2025:ingredient_oil ,
                                                                              kebi2025:ingredient_pasta ,
                                                                              kebi2025:ingredient_salt ;
-                                                 kebi2025:meal_notContainsGlutenIntolerance kebi2025:allergy_lactose ;
+                                                 kebi2025:meal_notContainsLactoseIntolerance kebi2025:allergy_lactose ;
                                                  kebi2025:food_hasKcal 378 ;
                                                  kebi2025:meal_hasLevelOfCalorieConscious 0 ,
                                                                                           1 ,
@@ -1196,6 +1197,47 @@ kebi2025:gluten rdf:type swrl:Variable .
 
 [ swrla:isRuleEnabled "true"^^xsd:boolean ;
    rdfs:comment "" ;
+   rdfs:label "MealContainsGlutenIntolerance" ;
+   rdf:type swrl:Imp ;
+   swrl:body [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:ClassAtom ;
+                           swrl:classPredicate kebi2025:Meal ;
+                           swrl:argument1 kebi2025:meal
+                         ] ;
+               rdf:rest [ rdf:type swrl:AtomList ;
+                          rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                      swrl:propertyPredicate kebi2025:meal_hasIngredient ;
+                                      swrl:argument1 kebi2025:meal ;
+                                      swrl:argument2 kebi2025:ingredient
+                                    ] ;
+                          rdf:rest [ rdf:type swrl:AtomList ;
+                                     rdf:first [ rdf:type swrl:ClassAtom ;
+                                                 swrl:classPredicate kebi2025:Ingredient ;
+                                                 swrl:argument1 kebi2025:ingredient
+                                               ] ;
+                                     rdf:rest [ rdf:type swrl:AtomList ;
+                                                rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                                            swrl:propertyPredicate kebi2025:grain_containsGlutenIntolerance ;
+                                                            swrl:argument1 kebi2025:ingredient ;
+                                                            swrl:argument2 kebi2025:gluten
+                                                          ] ;
+                                                rdf:rest rdf:nil
+                                              ]
+                                   ]
+                        ]
+             ] ;
+   swrl:head [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                           swrl:propertyPredicate kebi2025:meal_containsGlutenIntolerance ;
+                           swrl:argument1 kebi2025:meal ;
+                           swrl:argument2 kebi2025:gluten
+                         ] ;
+               rdf:rest rdf:nil
+             ]
+ ] .
+
+[ swrla:isRuleEnabled "true"^^xsd:boolean ;
+   rdfs:comment "" ;
    rdfs:label "Rule for inferring meals to eat - gluten intolerance" ;
    rdf:type swrl:Imp ;
    swrl:body [ rdf:type swrl:AtomList ;
@@ -1291,7 +1333,7 @@ kebi2025:gluten rdf:type swrl:Variable .
 
 [ swrla:isRuleEnabled "true"^^xsd:boolean ;
    rdfs:comment "" ;
-   rdfs:label "Rule for guest than doesn't have any allergy" ;
+   rdfs:label "Rule for inferring meals to eat - lactose intolerance" ;
    rdf:type swrl:Imp ;
    swrl:body [ rdf:type swrl:AtomList ;
                rdf:first [ rdf:type swrl:ClassAtom ;
@@ -1305,51 +1347,65 @@ kebi2025:gluten rdf:type swrl:Variable .
                                       swrl:argument2 kebi2025:category
                                     ] ;
                           rdf:rest [ rdf:type swrl:AtomList ;
-                                     rdf:first [ rdf:type swrl:DatavaluedPropertyAtom ;
-                                                 swrl:propertyPredicate kebi2025:guest_hasLevelOfCalorieConscious ;
+                                     rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                                 swrl:propertyPredicate kebi2025:guest_hasAllergy ;
                                                  swrl:argument1 kebi2025:guest ;
-                                                 swrl:argument2 kebi2025:level
+                                                 swrl:argument2 kebi2025:allergy
                                                ] ;
                                      rdf:rest [ rdf:type swrl:AtomList ;
-                                                rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
-                                                            swrl:propertyPredicate kebi2025:guest_hasPreferenceCourse ;
+                                                rdf:first [ rdf:type swrl:DatavaluedPropertyAtom ;
+                                                            swrl:propertyPredicate kebi2025:guest_hasLevelOfCalorieConscious ;
                                                             swrl:argument1 kebi2025:guest ;
-                                                            swrl:argument2 kebi2025:course
+                                                            swrl:argument2 kebi2025:level
                                                           ] ;
                                                 rdf:rest [ rdf:type swrl:AtomList ;
-                                                           rdf:first [ rdf:type swrl:ClassAtom ;
-                                                                       swrl:classPredicate kebi2025:Category ;
-                                                                       swrl:argument1 kebi2025:category
+                                                           rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                                                       swrl:propertyPredicate kebi2025:guest_hasPreferenceCourse ;
+                                                                       swrl:argument1 kebi2025:guest ;
+                                                                       swrl:argument2 kebi2025:course
                                                                      ] ;
                                                            rdf:rest [ rdf:type swrl:AtomList ;
                                                                       rdf:first [ rdf:type swrl:ClassAtom ;
-                                                                                  swrl:classPredicate kebi2025:Allergy ;
-                                                                                  swrl:argument1 kebi2025:allergy
+                                                                                  swrl:classPredicate kebi2025:Category ;
+                                                                                  swrl:argument1 kebi2025:category
                                                                                 ] ;
                                                                       rdf:rest [ rdf:type swrl:AtomList ;
                                                                                  rdf:first [ rdf:type swrl:ClassAtom ;
-                                                                                             swrl:classPredicate kebi2025:Meal ;
-                                                                                             swrl:argument1 kebi2025:meal
+                                                                                             swrl:classPredicate kebi2025:Allergy ;
+                                                                                             swrl:argument1 kebi2025:allergy
                                                                                            ] ;
                                                                                  rdf:rest [ rdf:type swrl:AtomList ;
-                                                                                            rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
-                                                                                                        swrl:propertyPredicate kebi2025:food_hasCategory ;
-                                                                                                        swrl:argument1 kebi2025:meal ;
-                                                                                                        swrl:argument2 kebi2025:category
+                                                                                            rdf:first [ rdf:type swrl:ClassAtom ;
+                                                                                                        swrl:classPredicate kebi2025:Meal ;
+                                                                                                        swrl:argument1 kebi2025:meal
                                                                                                       ] ;
                                                                                             rdf:rest [ rdf:type swrl:AtomList ;
-                                                                                                       rdf:first [ rdf:type swrl:DatavaluedPropertyAtom ;
-                                                                                                                   swrl:propertyPredicate kebi2025:meal_hasLevelOfCalorieConscious ;
+                                                                                                       rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                                                                                                   swrl:propertyPredicate kebi2025:food_hasCategory ;
                                                                                                                    swrl:argument1 kebi2025:meal ;
-                                                                                                                   swrl:argument2 kebi2025:level
+                                                                                                                   swrl:argument2 kebi2025:category
                                                                                                                  ] ;
                                                                                                        rdf:rest [ rdf:type swrl:AtomList ;
                                                                                                                   rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
-                                                                                                                              swrl:propertyPredicate kebi2025:meal_hasCourse ;
+                                                                                                                              swrl:propertyPredicate kebi2025:meal_notContainsLactoseIntolerance ;
                                                                                                                               swrl:argument1 kebi2025:meal ;
-                                                                                                                              swrl:argument2 kebi2025:course
+                                                                                                                              swrl:argument2 kebi2025:allergy
                                                                                                                             ] ;
-                                                                                                                  rdf:rest rdf:nil
+                                                                                                                  rdf:rest [ rdf:type swrl:AtomList ;
+                                                                                                                             rdf:first [ rdf:type swrl:DatavaluedPropertyAtom ;
+                                                                                                                                         swrl:propertyPredicate kebi2025:meal_hasLevelOfCalorieConscious ;
+                                                                                                                                         swrl:argument1 kebi2025:meal ;
+                                                                                                                                         swrl:argument2 kebi2025:level
+                                                                                                                                       ] ;
+                                                                                                                             rdf:rest [ rdf:type swrl:AtomList ;
+                                                                                                                                        rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                                                                                                                                    swrl:propertyPredicate kebi2025:meal_hasCourse ;
+                                                                                                                                                    swrl:argument1 kebi2025:meal ;
+                                                                                                                                                    swrl:argument2 kebi2025:course
+                                                                                                                                                  ] ;
+                                                                                                                                        rdf:rest rdf:nil
+                                                                                                                                      ]
+                                                                                                                           ]
                                                                                                                 ]
                                                                                                      ]
                                                                                           ]
@@ -1488,47 +1544,6 @@ kebi2025:gluten rdf:type swrl:Variable .
                            swrl:propertyPredicate kebi2025:meal_containsLactoseIntolerance ;
                            swrl:argument1 kebi2025:meal ;
                            swrl:argument2 kebi2025:dairy
-                         ] ;
-               rdf:rest rdf:nil
-             ]
- ] .
-
-[ swrla:isRuleEnabled "true"^^xsd:boolean ;
-   rdfs:comment "" ;
-   rdfs:label "MealContainsGlutenIntolerance" ;
-   rdf:type swrl:Imp ;
-   swrl:body [ rdf:type swrl:AtomList ;
-               rdf:first [ rdf:type swrl:ClassAtom ;
-                           swrl:classPredicate kebi2025:Meal ;
-                           swrl:argument1 kebi2025:meal
-                         ] ;
-               rdf:rest [ rdf:type swrl:AtomList ;
-                          rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
-                                      swrl:propertyPredicate kebi2025:meal_hasIngredient ;
-                                      swrl:argument1 kebi2025:meal ;
-                                      swrl:argument2 kebi2025:ingredient
-                                    ] ;
-                          rdf:rest [ rdf:type swrl:AtomList ;
-                                     rdf:first [ rdf:type swrl:ClassAtom ;
-                                                 swrl:classPredicate kebi2025:Ingredient ;
-                                                 swrl:argument1 kebi2025:ingredient
-                                               ] ;
-                                     rdf:rest [ rdf:type swrl:AtomList ;
-                                                rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
-                                                            swrl:propertyPredicate kebi2025:grain_containsGlutenIntolerance ;
-                                                            swrl:argument1 kebi2025:ingredient ;
-                                                            swrl:argument2 kebi2025:gluten
-                                                          ] ;
-                                                rdf:rest rdf:nil
-                                              ]
-                                   ]
-                        ]
-             ] ;
-   swrl:head [ rdf:type swrl:AtomList ;
-               rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
-                           swrl:propertyPredicate kebi2025:meal_containsGlutenIntolerance ;
-                           swrl:argument1 kebi2025:meal ;
-                           swrl:argument2 kebi2025:gluten
                          ] ;
                rdf:rest rdf:nil
              ]

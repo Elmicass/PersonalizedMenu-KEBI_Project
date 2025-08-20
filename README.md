@@ -24,11 +24,12 @@ lactose or gluten intolerance.
 1. Create different knowledge-based solutions for recommending food depending on the
 profile of a guest (carnivores, vegetarians, calorie-conscious, suffering from
 allergiesetc.) usind the following representation languages:
-• Decision tables (including DRD with sub-decisions and corresponding decision
-tables);
-• Prolog (including facts and rules);
-• Knowledge graph/Ontology (including rules in SWRL, queries in SPARQL and
-SHACL shapes)
+  * Decision tables (including DRD with sub-decisions and corresponding decision
+  tables);
+  * Prolog (including facts and rules);
+  * Knowledge graph/Ontology (including rules in SWRL, queries in SPARQL and
+  SHACL shapes)
+
 2. Agile and ontology-based meta-modelling: adapt BPMN 2.0 to suggest the meals for
 a given customer. For this, you can re-use or extend the knowledge graph/ontology
 created in the previous task. One option that you have is to specify the class BPMN
